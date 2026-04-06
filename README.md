@@ -2,7 +2,7 @@
 
 * FastAPI
 
-* LLM
+* LLM & Agents
 
 * Web3
 
