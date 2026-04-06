@@ -1,2 +1,7 @@
-# some-ai-on-the-way
-Some AI (2026-2028)
+** Some Tools
+
+* FastAPI
+
+* LLM
+
+* Web3
