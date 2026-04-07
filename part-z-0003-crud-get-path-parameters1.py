@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-import uvicorn
 
 app = FastAPI()
 
@@ -11,27 +10,20 @@ AREAS = [
     {"area": "Mobile", "most_used_lang": "Kotlin", "do I like": True},
 ]
 
-def main():
-
-    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
-
 @app.get("/areas")
 def read_areas():
     return AREAS
 
 
-@app.get("/areas/{area}")
-def read_area(area: str):
+@app.get("/areas/{searched_area}")
+def read_area(searched_area: str):
 
-    for area in AREAS:
+    for a in AREAS:
 
-        if area.get("area").lower() == area.lower():
+        if a.get("area").lower() == searched_area.lower():
 
-            return area
-          
-
-if __name__ == "__main__":
-    main()
-
+            return a 
+    
+    return {"error": "Not found!"}
 
 # uv run uvicorn main:app --reload
